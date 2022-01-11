@@ -1,5 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // this is needed!
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
@@ -10,8 +9,6 @@ import { LayoutModule } from './layout/layout.module';
 import { SharedModule } from './shared/shared.module';
 import { RoutingModule } from './routes/routing.module';
 import { FormsModule } from '@angular/forms';
-import {LoginComponent} from "./routes/public/login/login.component";
-import {RegisterComponent} from "./routes/public/register/register.component";
 @NgModule({
   declarations: [
     AppComponent,
