@@ -1,5 +1,5 @@
 import { OnInit, OnChanges, Directive, Input, SimpleChange, ElementRef } from '@angular/core';
-
+declare var require: any;
 declare var $: any;
 const EasyPieChart = require('easy-pie-chart');
 
