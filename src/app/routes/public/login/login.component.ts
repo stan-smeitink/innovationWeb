@@ -32,14 +32,13 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(email, password).subscribe({
       next: (data: { access_token: any; user:any }) => {
-        console.log(data);
         this.tokenStorage.saveToken(data.access_token);
         this.tokenStorage.saveUser(data.user);
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
-        // this.reloadPage();
+        this.reloadPage();
       },
       error: (err: { error: { message: string; }; }) => {
         this.errorMessage = err.error.message;
