@@ -9,6 +9,7 @@ import { LayoutModule } from './layout/layout.module';
 import { SharedModule } from './shared/shared.module';
 import { RoutingModule } from './routes/routing.module';
 import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     LayoutModule,
     SharedModule.forRoot(),
     RoutingModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
