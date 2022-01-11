@@ -10,6 +10,12 @@ const Login = {
   icon: 'icon-login'
 };
 
+const register = {
+  text: 'register',
+  link: '/register',
+  icon: 'icon-login'
+};
+
 const headingMain = {
   text: 'Main Navigation',
   heading: true
@@ -18,5 +24,6 @@ const headingMain = {
 export const menu = {
   headingMain,
   Home,
-  Login
+  Login,
+  register
 }
