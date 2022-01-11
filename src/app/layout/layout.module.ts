@@ -7,11 +7,11 @@ import {AuthService} from '../core/auth/auth.service';
 
 import {FooterComponent} from './footer/footer.component';
 
-//import {SharedModule} from '../shared/shared.module';
+import {SharedModule} from '../shared/shared.module';
 
 @NgModule({
   imports: [
-    //SharedModule
+    SharedModule
   ],
   providers: [
     AuthService
