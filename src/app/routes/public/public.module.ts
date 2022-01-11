@@ -15,7 +15,7 @@ const routes: Routes = [
   imports: [
     RouterModule.forChild(routes),
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
   ],
   declarations: [HomeComponent, LoginComponent, RegisterComponent],
   exports: [RouterModule]
