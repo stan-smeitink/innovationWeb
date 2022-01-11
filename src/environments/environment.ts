@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://innovationapi.test/api/',
+  API_URL: 'http://innovationapi.test/api/',
 };
 
 /*
