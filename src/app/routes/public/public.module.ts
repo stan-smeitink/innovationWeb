@@ -5,6 +5,7 @@ import {LoginComponent} from './login/login.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {RegisterComponent} from './register/register.component';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     ReactiveFormsModule,
     CommonModule,
+    FormsModule
   ],
   declarations: [HomeComponent, LoginComponent, RegisterComponent],
   exports: [RouterModule]

@@ -9,7 +9,9 @@ import { CoreModule } from './core/core.module';
 import { LayoutModule } from './layout/layout.module';
 import { SharedModule } from './shared/shared.module';
 import { RoutingModule } from './routes/routing.module';
-
+import { FormsModule } from '@angular/forms';
+import {LoginComponent} from "./routes/public/login/login.component";
+import {RegisterComponent} from "./routes/public/register/register.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +22,8 @@ import { RoutingModule } from './routes/routing.module';
     CoreModule,
     LayoutModule,
     SharedModule.forRoot(),
-    RoutingModule
+    RoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
