@@ -15,6 +15,6 @@ import {routes} from './routes';
 
 export class RoutingModule {
   constructor(public menuService: MenuService) {
-    menuService.addMenu(menu); // TODO
+    // menuService.addMenu(menu); // TODO
   }
 }

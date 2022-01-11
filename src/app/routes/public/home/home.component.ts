@@ -3,8 +3,8 @@ import {UserService} from "../../../core/auth/user.service"; // TODO: use or del
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  templateUrl: '/home.component.html',
+  styleUrls: ['/home.component.scss']
 })
 export class HomeComponent implements OnInit {
   content?: string;
