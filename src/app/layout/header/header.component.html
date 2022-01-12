@@ -4,13 +4,13 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto float-left">
+  <div class="collapse navbar-collapse col-md-12" id="navbarSupportedContent">
+    <ul class="navbar-nav float-left col-md-10">
       <li class="nav-item active">
         <a class="nav-link" [routerLink]="'/home'">Home</a>
       </li>
     </ul>
-    <ul class="navbar-nav mr-auto float-right">
+    <ul class="navbar-nav float-right col-md-2">
       <li class="nav-item" *ngIf="!token.getToken()">
         <a class="nav-link" [routerLink]="'/login'">Login</a>
       </li>
