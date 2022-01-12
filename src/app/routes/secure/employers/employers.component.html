@@ -1,1 +1,16 @@
-<p>employers works!</p>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Employer Name</th>
+    <th scope="col">Street</th>
+    <th scope="col">Delete</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let employer of employersArray" (click)="show(employer['id'])">
+    <th scope="row">{{employer['name'] ?? ''}}</th>
+    <td>{{employer['street'] ?? ''}}</td>
+    <td (click)="delete(employer['id'])"><button>Delete</button></td>
+  </tr>
+  </tbody>
+</table>
