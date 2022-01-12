@@ -1,1 +1,18 @@
-<p>employees works!</p>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Employer Name</th>
+    <th scope="col">Date of birth</th>
+    <th scope="col">Employer</th>
+    <th scope="col">Delete</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let employee of employeesArray" (click)="show(employee['id'])">
+    <th scope="row">{{employee['name'] ?? ''}}</th>
+    <td>{{employee['date_of_birth'] ?? ''}}</td>
+    <td>{{employee['employer']['name'] ?? ''}}</td>
+    <td (click)="delete(employee['id'])"><button>Delete</button></td>
+  </tr>
+  </tbody>
+</table>
