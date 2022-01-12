@@ -1,13 +1,9 @@
 import {Injectable} from '@angular/core';
 import {Observable} from "rxjs";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 
-const AUTH_API = environment.API_URL;
-
-const httpOptions = {
-  headers: new HttpHeaders({'Content-Type': 'application/json'})
-};
+const AUTH_API = environment.API_URL + 'employers/';
 
 @Injectable()
 export class EmployersService {
@@ -15,26 +11,22 @@ export class EmployersService {
   }
 
   all(): Observable<any> {
-    return this.http.get(AUTH_API + 'employers', httpOptions);
+    return this.http.get(AUTH_API + 'employers');
   }
 
   show(id: number): Observable<any> {
-    return this.http.get(`${AUTH_API}employers/${id}`, httpOptions);
+    return this.http.get(AUTH_API + 'employers/' + id);
   }
 
   store(id: number, name: string, street: string): Observable<any> {
-    return this.http.post(`${AUTH_API}employers/${id}`, {
-      name,
-    }, httpOptions);
+    return this.http.post(`${AUTH_API}employers/${id}`, {name});
   }
 
   update(id: number, name: string, street: string): Observable<any> {
-    return this.http.patch(`${AUTH_API}employers/${id}`, {
-      name,
-    }, httpOptions);
+    return this.http.patch(`${AUTH_API}employers/${id}`, {name});
   }
 
   delete(id: number): Observable<any> {
-    return this.http.delete(`${AUTH_API}employers/${id}`, httpOptions);
+    return this.http.delete(`${AUTH_API}employers/${id}`);
   }
 }
