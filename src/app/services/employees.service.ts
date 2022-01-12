@@ -1,55 +1,42 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {environment} from "../../environments/environment";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {TokenStorageService} from "../core/auth/token-storage.service";
+import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 
-const AUTH_API = environment.API_URL;
+const AUTH_API = environment.API_URL + 'employees';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeesService {
-
-  private  httpOptions = {};
-  constructor(private http: HttpClient, private token: TokenStorageService) {
-    const bearerToken = token.getToken();
-    if(bearerToken){
-      this.httpOptions = {
-        headers: new HttpHeaders({'Content-Type': 'application/json', 'Authorization': `Bearer ${bearerToken}`})
-      };
-    }else{
-      this.httpOptions = {
-        headers: new HttpHeaders({'Content-Type': 'application/json'})
-      };
-    }
+  constructor(private http: HttpClient) {
   }
 
   all(): Observable<any> {
-    return this.http.get(AUTH_API + 'employees', this.httpOptions);
+    return this.http.get(AUTH_API);
   }
 
   show(id: number): Observable<any> {
-    return this.http.get(`${AUTH_API}employees/${id} `, this.httpOptions);
+    return this.http.get(`${AUTH_API}/${id}`);
   }
 
-  store(name: string, date_of_birth: string, employer_id:number): Observable<any> {
-    return this.http.post(`${AUTH_API}employees `,{
+  store(id: number, name: string, date_of_birth: string, employee_id: number): Observable<any> {
+    return this.http.post(`${AUTH_API}/${id}`, {
       name,
       date_of_birth,
-      employer_id,
-    }, this.httpOptions);
+      employee_id,
+    });
   }
 
-  update(id: number, name: string, date_of_birth: string, employer_id:number): Observable<any> {
-    return this.http.patch(`${AUTH_API}employees/${id} `,{
+  update(id: number, name: string, date_of_birth: string, employee_id: number): Observable<any> {
+    return this.http.patch(`${AUTH_API}/${id}`, {
       name,
       date_of_birth,
-      employer_id,
-    }, this.httpOptions);
+      employee_id,
+    });
   }
 
   delete(id: number): Observable<any> {
-    return this.http.delete(`${AUTH_API}employees/${id} `, this.httpOptions);
+    return this.http.delete(`${AUTH_API}/${id}`);
   }
 }

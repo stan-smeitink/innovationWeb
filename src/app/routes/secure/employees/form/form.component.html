@@ -1,0 +1,43 @@
+<form
+  *ngIf="!isSuccessful"
+  name="form"
+  (ngSubmit)="f.form.valid && onSubmit()"
+  #f="ngForm"
+  novalidate>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text"
+           class="form-control"
+           id="name"
+           placeholder="Name"
+           name="name"
+           [(ngModel)]="form.name"
+           required
+           #name="ngModel">
+  </div>
+  <div class="form-group">
+    <label for="date_of_birth">Date of birth</label>
+    <input type="text"
+           class="form-control"
+           id="date_of_birth"
+           name="date_of_birth"
+           placeholder="Date of birth"
+           [(ngModel)]="form.date_of_birth"
+           required
+           #date_of_birth="ngModel">
+  </div>
+  <div class="form-group">
+    <label for="date_of_birth">employer</label>
+
+    <select name="employer_id"
+            id="employer_id"
+            class="form-control"
+            [(ngModel)]="form.employer_id"
+            #employer_id="ngModel"
+            required>
+      <option *ngFor="let employer of employersArray" value="{{employer['id']}}">{{employer['name']}}</option>
+    </select>
+
+  </div>
+  <button type="submit" class="btn btn-primary">Create Employer</button>
+</form>
