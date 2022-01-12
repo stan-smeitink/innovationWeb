@@ -13,7 +13,7 @@
     <td>{{dossier['start_at'] ?? ''}}</td>
     <td>{{dossier['end_at'] ?? ''}}</td>
     <td>{{dossier['dossier_status']['name'] ?? ''}}</td>
-    <td (click)="delete(dossier['id'])"><button>Delete</button></td>
+    <td (click)="delete(dossier['id'])"><button class="btn btn-danger">Delete</button></td>
   </tr>
   </tbody>
 </table>

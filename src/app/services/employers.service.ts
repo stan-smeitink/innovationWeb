@@ -22,9 +22,10 @@ export class EmployersService {
     return this.http.get(`${AUTH_API}employers/${id}`, httpOptions);
   }
 
-  store(id: number, name: string, street: string): Observable<any> {
-    return this.http.post(`${AUTH_API}employers/${id}`, {
+  store(name: string, street: string): Observable<any> {
+    return this.http.post(`${AUTH_API}employers`, {
       name,
+      street,
     }, httpOptions);
   }
 
