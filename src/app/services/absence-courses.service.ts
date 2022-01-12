@@ -20,8 +20,8 @@ export class AbsenceCoursesService {
     return this.http.get(`${AUTH_API}/${id}`);
   }
 
-  store(id: number, start_at: string, end_at: string, employee_id: number, type_id: number, absence_percentage: number): Observable<any> {
-    return this.http.post(`${AUTH_API}/${id}`, {
+  store(start_at: string, end_at: string, employee_id: number, type_id: number, absence_percentage: number): Observable<any> {
+    return this.http.post(`${AUTH_API}`, {
       start_at,
       end_at,
       employee_id,

@@ -29,8 +29,8 @@ export class DossiersService {
     });
   }
 
-  update(id: number, dossier_status_id: number, start_at: string, end_at: string, employee_id: number): Observable<any> {
-    return this.http.patch(`${AUTH_API}/${id}`, {
+  update(dossier_status_id: number, start_at: string, end_at: string, employee_id: number): Observable<any> {
+    return this.http.patch(`${AUTH_API}`, {
       dossier_status_id,
       start_at,
       end_at,
