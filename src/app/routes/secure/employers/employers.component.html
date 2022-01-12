@@ -12,7 +12,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let employer of employersArray" (click)="show(employer['id'])">
+  <tr *ngFor="let employer of employersArray">
     <th scope="row">{{employer['name'] ?? ''}}</th>
     <td>{{employer['street'] ?? ''}}</td>
     <td (click)="delete(employer['id'])"><button class="btn btn-danger">Delete</button></td>

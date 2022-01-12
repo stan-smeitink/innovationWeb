@@ -33,19 +33,19 @@ export class EmployeesService {
     return this.http.get(`${AUTH_API}employees/${id} `, this.httpOptions);
   }
 
-  store(id: number, name: string, date_of_birth: string, employee_id:number): Observable<any> {
-    return this.http.post(`${AUTH_API}employees/${id} `,{
+  store(name: string, date_of_birth: string, employer_id:number): Observable<any> {
+    return this.http.post(`${AUTH_API}employees `,{
       name,
       date_of_birth,
-      employee_id,
+      employer_id,
     }, this.httpOptions);
   }
 
-  update(id: number, name: string, date_of_birth: string, employee_id:number): Observable<any> {
+  update(id: number, name: string, date_of_birth: string, employer_id:number): Observable<any> {
     return this.http.patch(`${AUTH_API}employees/${id} `,{
       name,
       date_of_birth,
-      employee_id,
+      employer_id,
     }, this.httpOptions);
   }
 
