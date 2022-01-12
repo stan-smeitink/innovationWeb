@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
-import {Observable} from "rxjs";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {environment} from "../../environments/environment";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {TokenStorageService} from "../core/auth/token-storage.service";
+import {Observable} from "rxjs";
 
 const AUTH_API = environment.API_URL;
 
-@Injectable()
-export class EmployersService {
+@Injectable({
+  providedIn: 'root'
+})
+export class EmployeesService {
 
   private  httpOptions = {};
   constructor(private http: HttpClient, private token: TokenStorageService) {
@@ -23,28 +25,31 @@ export class EmployersService {
     }
   }
 
-
   all(): Observable<any> {
-    return this.http.get(AUTH_API + 'employers', this.httpOptions);
+    return this.http.get(AUTH_API + 'employees', this.httpOptions);
   }
 
   show(id: number): Observable<any> {
-    return this.http.get(`${AUTH_API}employers/${id}`, this.httpOptions);
+    return this.http.get(`${AUTH_API}employees/${id} `, this.httpOptions);
   }
 
-  store(id: number, name: string, street: string): Observable<any> {
-    return this.http.post(`${AUTH_API}employers/${id}`,{
+  store(id: number, name: string, date_of_birth: string, employee_id:number): Observable<any> {
+    return this.http.post(`${AUTH_API}employees/${id} `,{
       name,
+      date_of_birth,
+      employee_id,
     }, this.httpOptions);
   }
 
-  update(id: number, name: string, street: string): Observable<any> {
-    return this.http.patch(`${AUTH_API}employers/${id}`,{
+  update(id: number, name: string, date_of_birth: string, employee_id:number): Observable<any> {
+    return this.http.patch(`${AUTH_API}employees/${id} `,{
       name,
+      date_of_birth,
+      employee_id,
     }, this.httpOptions);
   }
 
   delete(id: number): Observable<any> {
-    return this.http.delete(`${AUTH_API}employers/${id}`, this.httpOptions);
+    return this.http.delete(`${AUTH_API}employees/${id} `, this.httpOptions);
   }
 }
