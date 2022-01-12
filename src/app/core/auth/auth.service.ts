@@ -5,10 +5,6 @@ import {Observable} from 'rxjs';
 
 const AUTH_API = environment.API_URL;
 
-const httpOptions = {
-  headers: new HttpHeaders({'Content-Type': 'application/json'})
-};
-
 @Injectable()
 export class AuthService {
   constructor(private http: HttpClient) {
@@ -18,7 +14,7 @@ export class AuthService {
     return this.http.post(AUTH_API + 'login', {
       email,
       password
-    }, httpOptions);
+    });
   }
 
   register(name: string, email: string, password: string): Observable<any> {
@@ -26,6 +22,6 @@ export class AuthService {
       name,
       email,
       password
-    }, httpOptions);
+    });
   }
 }
