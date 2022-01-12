@@ -21,7 +21,7 @@ export class DossiersService {
   }
 
   store(dossier_status_id: number, start_at: string, end_at: string, employee_id: number): Observable<any> {
-    return this.http.post(`${AUTH_API}`, {
+    return this.http.post(AUTH_API, {
       dossier_status_id,
       start_at,
       end_at,

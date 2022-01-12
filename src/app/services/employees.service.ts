@@ -21,14 +21,14 @@ export class EmployeesService {
   }
 
   store(name: string, date_of_birth: string, employer_id: number): Observable<any> {
-    return this.http.post(`${AUTH_API}`, {
+    return this.http.post(AUTH_API, {
       name,
       date_of_birth,
       employer_id,
     });
   }
 
-  update(id: string ,name: string, date_of_birth: string, employer_id: number): Observable<any> {
+  update(id: string, name: string, date_of_birth: string, employer_id: number): Observable<any> {
     return this.http.patch(`${AUTH_API}/${id}`, {
       name,
       date_of_birth,
