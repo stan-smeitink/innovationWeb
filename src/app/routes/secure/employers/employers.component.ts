@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {EmployersService} from "../../../services/employers.service";
 
 @Component({
   selector: 'app-employers',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployersComponent implements OnInit {
 
-  constructor() { }
+  constructor(private employers:EmployersService) {
+  }
 
   ngOnInit(): void {
+    this.employers.all().subscribe({
+      next: (data: { employers: any;}) => {
+
+      },
+      error: (err: { error: { message: string; }; }) => {
+
+      }
+    });
   }
 
 }
