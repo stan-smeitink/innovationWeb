@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthService, User} from '../../../core/auth/auth.service';
+import {TokenStorageService} from "../../../core/auth/token-storage.service";
 
 @Component({
   selector: 'app-secure',
@@ -7,22 +7,12 @@ import {AuthService, User} from '../../../core/auth/auth.service';
   styleUrls: ['./secure.component.scss']
 })
 export class SecureComponent implements OnInit {
-  user: User;
+  user: string[] = [];
 
-  constructor(private auth: AuthService) {
+  constructor(public tokenStorage: TokenStorageService) {
   }
 
   ngOnInit(): void {
-    this.auth.getUser()
-      .subscribe(
-        result => {
-          console.log('success get user');
-          console.log(result);
-          this.user = result;
-        },
-        err => {
-          console.log('error user:');
-          console.log(err);
-        });
+    this.user = this.tokenStorage.getUser();
   }
 }

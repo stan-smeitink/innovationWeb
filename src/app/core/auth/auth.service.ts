@@ -28,37 +28,4 @@ export class AuthService {
       password
     }, httpOptions);
   }
-
-  // public login(username: string, password: string): void {
-  //   const data = {
-  //     username,
-  //     password
-  //   };
-  //
-  //   // TODO: login call here
-  //
-  //   // const token = result.access_token;
-  //   // localStorage.setItem('access_token', token);
-  //   // this.token = token;
-  //   // this.router.navigate(['secure']);
-  // }
-
-  // public logout(): void {
-  //   if (this.isLoggedIn()) {
-  //     const headers = this.headers();
-  //
-  //     // TODO: logout call here
-  //
-  //     // localStorage.removeItem('access_token');
-  //     // this.token = null;
-  //   }
-  // }
-
-  // public isLoggedIn(): boolean {
-  //   return this.token !== null;
-  // }
-
-  // private headers(): HttpHeaders {
-  //   return new HttpHeaders({Authorization: `Bearer ${this.token}`});
-  // }
 }

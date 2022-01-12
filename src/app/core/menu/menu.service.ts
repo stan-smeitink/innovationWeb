@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class MenuService { // TODO from ng2angle, fix or delete
+export class MenuService {
 
     menuItems: Array<any>;
 

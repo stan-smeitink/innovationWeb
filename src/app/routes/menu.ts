@@ -21,7 +21,7 @@ const headingMain = {
   heading: true
 };
 
-export const menu = {
+export const menu: any = {
   headingMain,
   Home,
   Login,

@@ -1,10 +1,17 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
+import {SecureComponent} from './secure/secure.component';
+import {CommonModule} from '@angular/common';
+
+const routes: Routes = [
+  {path: 'secure', component: SecureComponent},
+];
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+  imports: [RouterModule.forChild(routes), CommonModule],
+  declarations: [SecureComponent],
+  exports: [RouterModule]
 })
-export class SecureModule { }
+
+export class SecureModule {
+}
