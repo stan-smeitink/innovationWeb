@@ -9,13 +9,13 @@
       <li class="nav-item active">
         <a class="nav-link" [routerLink]="'/home'">Home</a>
       </li>
-<!--      <li class="nav-item">-->
-<!--        <a class="nav-link" [routerLink]="'/login'">Link</a>-->
-<!--      </li>-->
     </ul>
-    <ul class="float-right">
-      <li>
-        <a class="" [routerLink]="'/logout'">uitloggen</a>
+    <ul class="navbar-nav mr-auto float-right">
+      <li class="nav-item" *ngIf="!token.getToken()">
+        <a class="nav-link" [routerLink]="'/login'">Login</a>
+      </li>
+      <li class="nav-item" *ngIf="token.getToken()">
+        <a class="nav-link" [routerLink]="'/logout'">logout</a>
       </li>
     </ul>
   </div>
