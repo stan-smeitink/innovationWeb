@@ -5,7 +5,7 @@ import {LoginComponent} from './login/login.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {RegisterComponent} from './register/register.component';
-import { FormsModule } from '@angular/forms'; //TODO: replace with SharedModule?
+import {FormsModule} from '@angular/forms'; //TODO: replace with SharedModule?
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
