@@ -14,7 +14,6 @@ export class EmployeesComponent implements OnInit {
   ngOnInit(): void {
     this.employees.all().subscribe({
       next: (result: { employers: any;}) => {
-        console.log(result);
         this.employeesArray = result['data'];
       },
       error: (err: { error: { message: string; }; }) => {
