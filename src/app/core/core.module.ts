@@ -5,13 +5,15 @@ import {AuthService} from "./auth/auth.service";
 import {AuthGuardService} from "./auth/auth-guard.service";
 
 import {throwIfAlreadyLoaded} from './module-import-guard';
+import {authInterceptorProviders} from "./helpers/auth.interceptor";
 
 @NgModule({
   imports: [],
   providers: [
     MenuService,
     AuthService,
-    AuthGuardService
+    AuthGuardService,
+    authInterceptorProviders
   ],
   declarations: [],
   exports: []
