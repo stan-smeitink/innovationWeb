@@ -1,0 +1,23 @@
+<form
+  *ngIf="!isSuccessful"
+  name="form"
+  (ngSubmit)="f.form.valid && onSubmit()"
+  #f="ngForm"
+  novalidate>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" placeholder="Employer name" name="name"
+           [(ngModel)]="form.name"
+           required
+           #name="ngModel">
+  </div>
+  <div class="form-group">
+    <label for="street">Street</label>
+    <input type="text" class="form-control" id="street" placeholder="Employer street" name="street"
+           [(ngModel)]="form.street"
+           required
+           #name="ngModel">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Create Employer</button>
+</form>

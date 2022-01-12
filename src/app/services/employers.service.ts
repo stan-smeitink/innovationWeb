@@ -18,8 +18,11 @@ export class EmployersService {
     return this.http.get(AUTH_API + 'employers/' + id);
   }
 
-  store(id: number, name: string, street: string): Observable<any> {
-    return this.http.post(`${AUTH_API}employers/${id}`, {name});
+  store(name: string, street: string): Observable<any> {
+    return this.http.post(`${AUTH_API}employers`, {
+      name,
+      street,
+    });
   }
 
   update(id: number, name: string, street: string): Observable<any> {

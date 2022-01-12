@@ -1,1 +1,19 @@
-<p>dossiers works!</p>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Employee</th>
+    <th scope="col">Start at</th>
+    <th scope="col">End at</th>
+    <th scope="col">Dossier Status</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let dossier of dossierArray">
+    <th scope="row">{{dossier['employee']['name'] ?? ''}}</th>
+    <td>{{dossier['start_at'] ?? ''}}</td>
+    <td>{{dossier['end_at'] ?? ''}}</td>
+    <td>{{dossier['dossier_status']['name'] ?? ''}}</td>
+    <td (click)="delete(dossier['id'])"><button class="btn btn-danger">Delete</button></td>
+  </tr>
+  </tbody>
+</table>
