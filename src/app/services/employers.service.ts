@@ -23,7 +23,7 @@ export class EmployersService {
   store(name: string, street: string): Observable<any> {
     return this.http.post(AUTH_API, {
       name,
-      street,
+      street
     });
   }
 

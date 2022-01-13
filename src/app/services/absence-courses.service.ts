@@ -24,7 +24,7 @@ export class AbsenceCoursesService {
     return this.http.post(AUTH_API, {
       start_at,
       employee_id,
-      absence_percentage,
+      absence_percentage
     });
   }
 
@@ -33,7 +33,7 @@ export class AbsenceCoursesService {
       start_at,
       end_at,
       employee_id,
-      absence_percentage,
+      absence_percentage
     });
   }
 

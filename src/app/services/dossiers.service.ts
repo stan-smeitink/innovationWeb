@@ -25,7 +25,7 @@ export class DossiersService {
       dossier_status_id,
       start_at,
       end_at,
-      employee_id,
+      employee_id
     });
   }
 
@@ -35,7 +35,7 @@ export class DossiersService {
       dossier_status_id,
       start_at,
       end_at,
-      employee_id,
+      employee_id
     });
   }
 

@@ -24,7 +24,7 @@ export class EmployeesService {
     return this.http.post(AUTH_API, {
       name,
       date_of_birth,
-      employer_id,
+      employer_id
     });
   }
 
@@ -32,7 +32,7 @@ export class EmployeesService {
     return this.http.patch(`${AUTH_API}/${id}`, {
       name,
       date_of_birth,
-      employer_id,
+      employer_id
     });
   }
 
