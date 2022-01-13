@@ -9,6 +9,7 @@
     <th scope="col">Employer Name</th>
     <th scope="col">Date of birth</th>
     <th scope="col">Employer</th>
+    <th scope="col">Edit</th>
     <th scope="col">Delete</th>
   </tr>
   </thead>
@@ -17,6 +18,7 @@
     <th scope="row">{{employee['name'] ?? ''}}</th>
     <td>{{employee['date_of_birth'] ?? ''}}</td>
     <td>{{employee['employer']['name'] ?? ''}}</td>
+    <td [routerLink]="['update', employee['id']]"><button class="btn btn-info">Edit</button></td>
     <td (click)="delete(employee['id'])"><button class="btn btn-danger">Delete</button></td>
   </tr>
   </tbody>

@@ -8,7 +8,7 @@ import {EmployeesComponent} from "./employees.component"; //TODO: replace with S
 const routes: Routes = [
   {path: '', component: EmployeesComponent},
   {path: 'create', component: FormComponent},
-  {path: 'update', component: FormComponent},
+  {path: 'update/:id', component: FormComponent},
 ];
 
 @NgModule({
