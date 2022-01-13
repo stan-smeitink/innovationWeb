@@ -32,13 +32,20 @@ export class EmployeesComponent implements OnInit {
     this.employees.delete(id).subscribe({
       next: (result: { message: any;}) => {
         this.successMessage = result.message;
-        this.errorMessage = '';
         this.ngOnInit();
+        this.removeMessages();
       },
       error: (err: { error: { message: string; }; }) => {
         this.errorMessage = err.error.message;
-        this.successMessage = '';
+        this.removeMessages();
       }
     });
+  }
+
+  public removeMessages(){
+    setTimeout(()=>{                           //<<<---using ()=> syntax
+      this.successMessage = '';
+      this.errorMessage = '';
+    }, 1500);
   }
 }

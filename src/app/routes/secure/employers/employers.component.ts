@@ -43,12 +43,18 @@ export class EmployersComponent implements OnInit {
       next: (result: { message: any; }) => {
         this.ngOnInit();
         this.successMessage = result.message;
-        this.errorMessage = '';
       },
       error: (err: { error: { message: string; }; }) => {
         this.errorMessage = err.error.message;
-        this.successMessage = '';
+
       }
     });
+  }
+
+  public removeMessages(){
+    setTimeout(()=>{                           //<<<---using ()=> syntax
+      this.successMessage = '';
+      this.errorMessage = '';
+    }, 1500);
   }
 }
