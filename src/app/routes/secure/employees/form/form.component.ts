@@ -18,6 +18,7 @@ export class FormComponent implements OnInit {
   isSuccessful = false;
   errorMessage = '';
   employersArray = [];
+  isUpdating = false;
 
   constructor(private employees: EmployeesService, private employers: EmployersService, private router: Router, private activatedRoute: ActivatedRoute) {
   }
@@ -72,6 +73,7 @@ export class FormComponent implements OnInit {
           this.form.date_of_birth = data['data']['date_of_birth'];
           this.form.employer_id = data['data']['employer_id'];
           this.form.id = data['data']['id'];
+          this.isUpdating = true;
         },
         error: (err: { error: { message: string; }; }) => {
           this.isSuccessful = false;

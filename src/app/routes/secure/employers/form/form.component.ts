@@ -16,6 +16,7 @@ export class FormComponent implements OnInit {
   errorMessage = '';
   isCreating = true;
   employer = [];
+  isUpdating = false;
   constructor(private employers:EmployersService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -57,6 +58,7 @@ export class FormComponent implements OnInit {
           this.form.name = data['data']['name'];
           this.form.street = data['data']['street'];
           this.form.id = data['data']['id'];
+          this.isUpdating = true;
         },
         error: (err: { error: { message: string; }; }) => {
           this.isSuccessful = false;

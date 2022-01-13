@@ -48,5 +48,6 @@
     </select>
 
   </div>
-  <button type="submit" class="btn btn-primary">Create Employer</button>
+  <button *ngIf="! isUpdating" type="submit" class="btn btn-primary">Create Employee</button>
+  <button *ngIf="isUpdating" type="submit" class="btn btn-primary">Update Employee</button>
 </form>
