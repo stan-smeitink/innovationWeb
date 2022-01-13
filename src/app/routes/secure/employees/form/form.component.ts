@@ -39,7 +39,7 @@ export class FormComponent implements OnInit {
         this.router.navigate(['employees']);
       },
       error: (err: { error: { message: string; }; }) => {
-        this.isSuccessful = true
+        this.isSuccessful = false;
         this.errorMessage = '';
       }
     });

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {EmployersService} from "../../../../services/employers.service";
-import {Router} from "@angular/router";
+import {Router, ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-form',
@@ -14,25 +14,55 @@ export class FormComponent implements OnInit {
   };
   isSuccessful = false;
   errorMessage = '';
-  constructor(private employers:EmployersService, private router: Router) { }
+  isCreating = true;
+  employer = [];
+  constructor(private employers:EmployersService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-  }
-
-  onSubmit(): void {
-    console.log(this.form);
-    const { name, street } = this.form;
-
-    this.employers.store(name, street).subscribe({
-      next: (data: { result: any }) => {
-        console.log(data);
-        this.router.navigate(['employers']);
-      },
-      error: (err: { error: { message: string; }; }) => {
-        this.isSuccessful = true
-        this.errorMessage = '';
-      }
+    this.activatedRoute.paramMap.subscribe(params => {
+      const id = params.get('id');
+      this.fillForm(id);
     });
   }
 
+  onSubmit(): void {
+    const {id, name, street } = this.form;
+    if(id > 0){
+      this.employers.update(id, name, street).subscribe({
+        next: (data: { result: any }) => {
+          this.router.navigate(['employers']);
+        },
+        error: (err: { error: { message: string; }; }) => {
+          this.isSuccessful = false;
+          this.errorMessage = '';
+        }
+      });
+    }else{
+      this.employers.store(name, street).subscribe({
+        next: (data: { result: any }) => {
+          this.router.navigate(['employers']);
+        },
+        error: (err: { error: { message: string; }; }) => {
+          this.isSuccessful = false;
+          this.errorMessage = '';
+        }
+      });
+    }
+  }
+
+  private fillForm(id){
+    if(id > 0){
+      this.employers.show(id).subscribe({
+        next: (data: { result: any }) => {
+          this.form.name = data['data']['name'];
+          this.form.street = data['data']['street'];
+          this.form.id = data['data']['id'];
+        },
+        error: (err: { error: { message: string; }; }) => {
+          this.isSuccessful = false;
+          this.errorMessage = '';
+        }
+      });
+    }
+  }
 }

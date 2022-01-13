@@ -29,7 +29,8 @@ export class EmployersService {
 
   update(id: number, name: string, street: string): Observable<any> {
     return this.http.patch(`${AUTH_API}/${id}`, {
-      name
+      name,
+      street
     });
   }
 
