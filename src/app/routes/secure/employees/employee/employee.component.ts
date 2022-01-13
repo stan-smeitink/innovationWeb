@@ -49,7 +49,6 @@ export class EmployeeComponent implements OnInit {
       this.employees.dossiers(id).subscribe({
         next: (data: { result: any }) => {
           this.dossiers = data['data'];
-          // this.form.chosenDossier.setValue(data['data']['id']);
         },
         error: (err: { error: { message: string; }; }) => {
 
