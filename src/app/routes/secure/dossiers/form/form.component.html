@@ -1,0 +1,46 @@
+<form
+  *ngIf="!isSuccessful"
+  name="form"
+  (ngSubmit)="f.form.valid && onSubmit()"
+  #f="ngForm"
+  novalidate>
+  <div class="form-group">
+    <label for="start_at">Start at</label>
+    <input type="text"
+           class="form-control"
+           id="start_at"
+           placeholder="start_at"
+           name="start_at"
+           [(ngModel)]="form.name"
+           required
+           #start_at="ngModel">
+  </div>
+  <div class="form-group">
+    <label for="absence_percentage">Absence percentage</label>
+
+    <input type="number"
+           class="form-control"
+           id="absence_percentage"
+           name="absence_percentage"
+           placeholder="absence percentage"
+           min="0"
+           max="100"
+           [(ngModel)]="form.absence_percentage"
+           required
+           #absence_percentage="ngModel">
+  </div>
+  <div class="form-group">
+    <label for="employee_id">Employee</label>
+
+    <select name="employee_id"
+            id="employee_id"
+            class="form-control"
+            [(ngModel)]="form.employee_id"
+            #employer_id="ngModel"
+            required>
+      <option *ngFor="let employee of employeesArray" value="{{employee['id']}}">{{employee['name']}}</option>
+    </select>
+
+  </div>
+  <button type="submit" class="btn btn-primary">Create Employer</button>
+</form>
