@@ -18,7 +18,7 @@
     <th scope="row">{{employee['name'] ?? ''}}</th>
     <td>{{employee['date_of_birth'] ?? ''}}</td>
     <td>{{employee['employer']['name'] ?? ''}}</td>
-    <td [routerLink]="['././dossiers/form/update', employee['id']]"><button class="btn btn-info">Edit</button></td>
+    <td [routerLink]="['update', employee['id']]"><button class="btn btn-info">Edit</button></td>
     <td (click)="delete(employee['id'])"><button class="btn btn-danger">Delete</button></td>
   </tr>
   </tbody>
