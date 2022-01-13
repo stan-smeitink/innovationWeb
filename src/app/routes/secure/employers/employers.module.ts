@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 import {EmployersComponent} from "./employers.component";
 import {FormComponent} from './form/form.component';
-import {FormsModule} from '@angular/forms'; //TODO: replace with SharedModule?
+import {FormsModule} from "@angular/forms";
 
 const routes: Routes = [
   {path: '', component: EmployersComponent},
@@ -15,7 +15,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    FormsModule,
+    FormsModule
   ],
   declarations: [
     FormComponent

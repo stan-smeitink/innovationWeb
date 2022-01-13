@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {EmployersService} from "../../../services/employers.service";
+import {CustomModalComponent, ModalConfig} from "../../../shared/custom-modal";
 
 @Component({
   selector: 'app-employers',
@@ -8,28 +9,39 @@ import {EmployersService} from "../../../services/employers.service";
 })
 export class EmployersComponent implements OnInit {
   employersArray = [];
-  constructor(private employers:EmployersService) {
+  modalConfig: ModalConfig = {
+    modalTitle: 'Hallo ik ben een Modal',
+    closeButtonLabel: 'Close',
+    dismissButtonLabel: 'Dismiss'
+  };
+
+  constructor(private employers: EmployersService) {
   }
 
   ngOnInit(): void {
     this.employers.all().subscribe({
-      next: (result: { employers: any;}) => {
+      next: (result) => {
         this.employersArray = result['data'];
       },
-      error: (err: { error: { message: string; }; }) => {
-
+      error: (err) => {
+        console.log(err)
       }
     });
   }
 
-  public delete(id){
+  @ViewChild('modal') private modalComponent: CustomModalComponent
+
+  async openModal() {
+    return await this.modalComponent.open()
+  }
+
+  public delete(id) {
     this.employers.delete(id).subscribe({
-      next: (result: { employers: any;}) => {
+      next: () => {
         this.ngOnInit();
       },
-      error: (err: { error: { message: string; }; }) => {
-
-        console.log("Error");
+      error: (err) => {
+        console.log(err);
       }
     });
   }
