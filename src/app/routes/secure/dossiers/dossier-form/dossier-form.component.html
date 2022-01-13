@@ -1,0 +1,62 @@
+<form
+  *ngIf="!isSuccessful"
+  name="form"
+  (ngSubmit)="f.form.valid && onSubmit()"
+  #f="ngForm"
+  novalidate>
+
+  <input type="text"
+         class="form-control"
+         id="id"
+         placeholder="start_at"
+         name="id"
+         style="display: none"
+         [(ngModel)]="form.id">
+
+  <div class="form-group">
+    <label for="start_at">Start at</label>
+    <input type="text"
+           class="form-control"
+           id="start_at"
+           placeholder="start_at"
+           name="start_at"
+           [(ngModel)]="form.start_at"
+           required
+           #start_at="ngModel">
+  </div>
+  <div class="form-group">
+    <label for="end_at">End at</label>
+
+    <input type="text"
+           class="form-control"
+           id="end_at"
+           name="end_at"
+           placeholder="End at"
+           [(ngModel)]="form.end_at"
+           #absence_percentage="ngModel">
+  </div>
+  <div class="form-group">
+    <label for="dossier_status_id">Dossier status</label>
+
+    <select name="dossier_status_id"
+            id="dossier_status_id"
+            class="form-control"
+            [(ngModel)]="form.dossier_status_id"
+            #employer_id="ngModel"
+            required>
+      <option *ngFor="let dossierStatus of dossierStatusesArray" value="{{dossierStatus['id']}}">{{dossierStatus['name']}}</option>
+    </select>
+
+  </div>
+  <div class="form-group">
+    <input type="text"
+           class="form-control"
+           id="employee_id"
+           name="employee_id"
+           style="display: none"
+           [(ngModel)]="form.employee_id">
+
+
+  </div>
+  <button type="submit" class="btn btn-primary">Create Employer</button>
+</form>
