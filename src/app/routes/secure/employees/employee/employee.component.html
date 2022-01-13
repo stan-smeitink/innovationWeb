@@ -1,0 +1,40 @@
+<div ng-controller="myCtrl"></div>
+<div class="container">
+  <div class="jumbotron" style="text-align: center">
+  <p>{{employee['name']}}</p>
+  </div>
+</div>
+<div class="container">
+  <select class="form-control" [(ngModel)]="chosenDossier" style="text-align: center" id="selectedDossierId" (ngModelChange)="getAbsenceCourse()">
+   <option *ngFor="let dossier of dossiers" value="{{dossier['id']}}">{{dossier['start_at']}} - {{dossier['end_at']}}</option>
+  </select>
+</div>
+<div class="wrapper">
+<!--  <div class="col-md-12">-->
+<!--    <div class="col-md-6 float-left"><p>Dossier list</p></div>-->
+<!--    <a class="btn btn-primary col-md-2 float-right" routerLink="/absence-course/create">Create absence course</a>-->
+<!--  </div>-->
+
+  <div id="content">
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">Start at</th>
+        <th scope="col">End at</th>
+        <th scope="col">Type</th>
+        <th scope="col">Edit</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let absenceCourse of absenceCourses">
+        <th scope="row">{{absenceCourse['start_at'] ?? ''}}</th>
+        <td>{{absenceCourse['end_at'] ?? ''}}</td>
+        <td>{{absenceCourse['absence_type']['name'] ?? ''}}</td>
+        <td>{{absenceCourse['absence_type']['name'] ?? ''}}</td>
+        <td [routerLink]="['update', absenceCourse['id']]"><button class="btn btn-info">Edit</button></td>
+        <td (click)="deleteAbsence(absenceCourse['id'])"><button class="btn btn-danger">Delete</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
