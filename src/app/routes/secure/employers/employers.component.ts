@@ -14,9 +14,12 @@ export class EmployersComponent implements OnInit {
     closeButtonLabel: 'Close',
     dismissButtonLabel: 'Dismiss'
   };
+  isSuccessful = false;
+  succesMessage = '';
+  errorMessage = '';
 
   constructor(private employers: EmployersService) {
-  }
+  };
 
   ngOnInit(): void {
     this.employers.all().subscribe({
@@ -37,13 +40,15 @@ export class EmployersComponent implements OnInit {
 
   public delete(id) {
     this.employers.delete(id).subscribe({
-      next: () => {
+      next: (result: { message: any; }) => {
         this.ngOnInit();
+        this.succesMessage = result.message;
+        this.errorMessage = '';
       },
-      error: (err) => {
-        console.log(err);
+      error: (err: { error: { message: string; }; }) => {
+        this.errorMessage = err.error.message;
+        this.succesMessage = '';
       }
     });
   }
-
 }

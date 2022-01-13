@@ -28,4 +28,12 @@
 
   <button *ngIf="! isUpdating" type="submit" class="btn btn-primary">Create Employer</button>
   <button *ngIf="isUpdating" type="submit" class="btn btn-primary">Update Employer</button>
+  <div class="alert alert-warning" *ngIf="f.submitted">
+    Signup failed!<br/>{{ errorMessage }}
+  </div>
 </form>
+
+<div class="alert alert-success" *ngIf="isSuccessful">
+  Your registration is successful!
+</div>
+
