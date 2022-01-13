@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {AbsenceCoursesService} from "../../../../services/absence-courses.service";
 import {EmployeesService} from "../../../../services/employees.service";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
+import {DossiersService} from "../../../../services/dossiers.service";
 
 @Component({
   selector: 'app-form',
@@ -21,7 +22,7 @@ export class FormComponent implements OnInit {
   employeesArray = [];
 
 
-  constructor(private absenceCourses:AbsenceCoursesService, private employees:EmployeesService, private router: Router) { }
+  constructor(private dossiers:DossiersService,private absenceCourses:AbsenceCoursesService, private employees:EmployeesService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.employees.all().subscribe({
@@ -31,6 +32,11 @@ export class FormComponent implements OnInit {
       error: (err: { error: { message: string; }; }) => {
 
       }
+    });
+
+    this.activatedRoute.paramMap.subscribe(params => {
+      const id = params.get('id');
+      this.fillForm(id);
     });
   }
 
@@ -46,5 +52,22 @@ export class FormComponent implements OnInit {
         this.errorMessage = '';
       }
     });
+  }
+
+  private fillForm(id) {
+    if (id > 0) {
+      this.dossiers.show(id).subscribe({
+        next: (data: { result: any }) => {
+          this.form.name = data['data']['name'];
+          this.form.date_of_birth = data['data']['date_of_birth'];
+          this.form.employer_id = data['data']['employer_id'];
+          this.form.id = data['data']['id'];
+        },
+        error: (err: { error: { message: string; }; }) => {
+          this.isSuccessful = false;
+          this.errorMessage = '';
+        }
+      });
+    }
   }
 }

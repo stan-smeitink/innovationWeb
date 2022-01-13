@@ -10,6 +10,8 @@
     <th scope="col">Start at</th>
     <th scope="col">End at</th>
     <th scope="col">Dossier Status</th>
+    <th scope="col">Edit</th>
+    <th scope="col">Delete</th>
   </tr>
   </thead>
   <tbody>
@@ -18,6 +20,7 @@
     <td>{{dossier['start_at'] ?? ''}}</td>
     <td>{{dossier['end_at'] ?? ''}}</td>
     <td>{{dossier['dossier_status']['name'] ?? ''}}</td>
+    <td [routerLink]="['update', dossier['id']]"><button class="btn btn-info">Edit</button></td>
     <td (click)="delete(dossier['id'])"><button class="btn btn-danger">Delete</button></td>
   </tr>
   </tbody>

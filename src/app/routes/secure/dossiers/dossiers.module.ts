@@ -4,17 +4,19 @@ import {RouterModule, Routes} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {DossiersComponent} from "./dossiers.component";
 import {FormComponent} from "./form/form.component";
+import { DossierFormComponent } from './dossier-form/dossier-form.component';
 
 
 const routes: Routes = [
   {path: '', component: DossiersComponent},
   {path: 'create', component: FormComponent},
-  {path: 'update', component: FormComponent},
+  {path: 'update/:id', component: DossierFormComponent},
 ];
 
 @NgModule({
   declarations: [
-    FormComponent
+    FormComponent,
+    DossierFormComponent
   ],
   imports: [
     CommonModule,
