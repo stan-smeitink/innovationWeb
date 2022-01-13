@@ -52,7 +52,7 @@ export class EmployersComponent implements OnInit {
   }
 
   public removeMessages(){
-    setTimeout(()=>{                           //<<<---using ()=> syntax
+    setTimeout(()=>{
       this.successMessage = '';
       this.errorMessage = '';
     }, 1500);
