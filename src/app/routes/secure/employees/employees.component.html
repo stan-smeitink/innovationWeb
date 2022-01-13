@@ -14,13 +14,28 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let employee of employeesArray" [routerLink]="['employee', employee['id']]">
-    <th scope="row">{{employee['name'] ?? ''}}</th>
-    <td>{{employee['date_of_birth'] ?? ''}}</td>
-    <td>{{employee['employer']['name'] ?? ''}}</td>
+  <tr *ngFor="let employee of employeesArray">
+    <th scope="row" [routerLink]="['employee', employee['id']]">{{employee['name'] ?? ''}}</th>
+    <td [routerLink]="['employee', employee['id']]">{{employee['date_of_birth'] ?? ''}}</td>
+    <td [routerLink]="['employee', employee['id']]">{{employee['employer']['name'] ?? ''}}</td>
     <td [routerLink]="['update', employee['id']]"><button class="btn btn-info">Edit</button></td>
     <td (click)="delete(employee['id'])">
       <button class="btn btn-danger">Delete</button></td>
   </tr>
   </tbody>
 </table>
+<div class="form-group" *ngIf="succesMessage">
+  <div
+    class="alert alert-success"
+    role="alert">
+    {{ succesMessage }}
+  </div>
+</div>
+
+<div class="form-group" *ngIf="errorMessage">
+  <div
+    class="alert alert-danger"
+    role="alert">
+    {{ errorMessage }}
+  </div>
+</div>

@@ -9,6 +9,9 @@ import {EmployeesService} from "../../../services/employees.service";
 export class EmployeesComponent implements OnInit {
   public employeesArray = [];
   constructor(private employees:EmployeesService) { }
+  isSuccessful = false;
+  succesMessage = '';
+  errorMessage = '';
 
   ngOnInit(): void {
     this.employees.all().subscribe({
@@ -27,13 +30,15 @@ export class EmployeesComponent implements OnInit {
 
   public delete(id){
     this.employees.delete(id).subscribe({
-      next: (result: { employers: any;}) => {
+      next: (result: { message: any;}) => {
+        this.succesMessage = result.message;
+        this.errorMessage = '';
         this.ngOnInit();
       },
       error: (err: { error: { message: string; }; }) => {
-        console.log("Error");
+        this.errorMessage = err.error.message;
+        this.succesMessage = '';
       }
     });
   }
-
 }
