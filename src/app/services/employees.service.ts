@@ -39,4 +39,8 @@ export class EmployeesService {
   delete(id: number): Observable<any> {
     return this.http.delete(`${AUTH_API}/${id}`);
   }
+
+  dossiers(id: number): Observable<any> {
+    return this.http.get(`${AUTH_API}/${id}/dossiers`);
+  }
 }

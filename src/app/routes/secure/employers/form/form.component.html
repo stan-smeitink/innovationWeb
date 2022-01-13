@@ -26,5 +26,6 @@
            #name="ngModel">
   </div>
 
-  <button type="submit" class="btn btn-primary">Create Employer</button>
+  <button *ngIf="! isUpdating" type="submit" class="btn btn-primary">Create Employer</button>
+  <button *ngIf="isUpdating" type="submit" class="btn btn-primary">Update Employer</button>
 </form>

@@ -56,7 +56,6 @@ export class DossierFormComponent implements OnInit {
     if (id > 0) {
       this.dossiers.show(id).subscribe({
         next: (data: { result: any }) => {
-          console.log(data);
           this.form.start_at = data['data']['start_at'];
           this.form.end_at = data['data']['end_at'];
           this.form.employee_id = data['data']['employee_id'];
