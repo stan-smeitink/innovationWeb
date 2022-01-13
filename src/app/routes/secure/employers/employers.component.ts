@@ -15,7 +15,7 @@ export class EmployersComponent implements OnInit {
     dismissButtonLabel: 'Dismiss'
   };
   isSuccessful = false;
-  succesMessage = '';
+  successMessage = '';
   errorMessage = '';
 
   constructor(private employers: EmployersService) {
@@ -42,12 +42,12 @@ export class EmployersComponent implements OnInit {
     this.employers.delete(id).subscribe({
       next: (result: { message: any; }) => {
         this.ngOnInit();
-        this.succesMessage = result.message;
+        this.successMessage = result.message;
         this.errorMessage = '';
       },
       error: (err: { error: { message: string; }; }) => {
         this.errorMessage = err.error.message;
-        this.succesMessage = '';
+        this.successMessage = '';
       }
     });
   }

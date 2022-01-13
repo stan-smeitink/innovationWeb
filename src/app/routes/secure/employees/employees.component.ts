@@ -10,7 +10,7 @@ export class EmployeesComponent implements OnInit {
   public employeesArray = [];
   constructor(private employees:EmployeesService) { }
   isSuccessful = false;
-  succesMessage = '';
+  successMessage = '';
   errorMessage = '';
 
   ngOnInit(): void {
@@ -31,13 +31,13 @@ export class EmployeesComponent implements OnInit {
   public delete(id){
     this.employees.delete(id).subscribe({
       next: (result: { message: any;}) => {
-        this.succesMessage = result.message;
+        this.successMessage = result.message;
         this.errorMessage = '';
         this.ngOnInit();
       },
       error: (err: { error: { message: string; }; }) => {
         this.errorMessage = err.error.message;
-        this.succesMessage = '';
+        this.successMessage = '';
       }
     });
   }
