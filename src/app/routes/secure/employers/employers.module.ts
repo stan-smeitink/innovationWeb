@@ -8,7 +8,7 @@ import {FormsModule} from '@angular/forms'; //TODO: replace with SharedModule?
 const routes: Routes = [
   {path: '', component: EmployersComponent},
   {path: 'create', component: FormComponent},
-  {path: 'update', component: FormComponent},
+  {path: 'update/:id', component: FormComponent},
 ];
 
 @NgModule({

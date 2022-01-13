@@ -22,16 +22,13 @@ export class EmployersComponent implements OnInit {
     });
   }
 
-  public show(id){
-    console.log(id);
-  }
-
   public delete(id){
     this.employers.delete(id).subscribe({
       next: (result: { employers: any;}) => {
         this.ngOnInit();
       },
       error: (err: { error: { message: string; }; }) => {
+
         console.log("Error");
       }
     });
