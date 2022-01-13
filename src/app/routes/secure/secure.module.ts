@@ -12,7 +12,7 @@ const routes: Routes = [
   {path: 'secure', component: SecureComponent},
   {path: 'employers', loadChildren: () => import('./employers/employers.module').then(m => m.EmployersModule)},
   {path: 'employees', loadChildren: () => import('./employees/employees.module').then(m => m.EmployeesModule)},
-  {path: 'dossiers', component: DossiersComponent},
+  {path: 'dossiers', loadChildren: () => import('./dossiers/dossiers.module').then(m => m.DossiersModule)},
 ];
 
 @NgModule({
