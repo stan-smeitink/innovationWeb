@@ -21,6 +21,7 @@
       <tr>
         <th scope="col">Start at</th>
         <th scope="col">End at</th>
+        <th scope="col">Absence percentage</th>
         <th scope="col">Type</th>
 <!--        <th scope="col">Edit</th>-->
         <th scope="col">Delete</th>
@@ -30,6 +31,7 @@
       <tr *ngFor="let absenceCourse of absenceCourses">
         <th scope="row">{{absenceCourse['start_at'] ?? ''}}</th>
         <td>{{absenceCourse['end_at'] ?? ''}}</td>
+        <td>{{absenceCourse['absence_percentage'] ?? ''}}</td>
         <td>{{absenceCourse['absence_type']['name'] ?? ''}}</td>
 <!--        <td [routerLink]="['update', absenceCourse['id']]"><button class="btn btn-info">Edit</button></td>-->
         <td (click)="deleteAbsence(absenceCourse['id'])"><button class="btn btn-danger">Delete</button></td>
