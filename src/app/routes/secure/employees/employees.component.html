@@ -18,7 +18,7 @@
   </thead>
   <tbody>
   <tr *ngFor="let employee of employeesArray">
-    <th scope="row" [routerLink]="['employee', employee['id']]">{{employee['name'] ?? ''}}</th>
+    <td scope="row" [routerLink]="['employee', employee['id']]">{{employee['name'] ?? ''}}</td>
     <td [routerLink]="['employee', employee['id']]">{{employee['date_of_birth'] ?? ''}}</td>
     <td [routerLink]="['employee', employee['id']]">{{employee['employer']['name'] ?? ''}}</td>
     <td [routerLink]="['update', employee['id']]"><button class="btn btn-info">Edit</button></td>

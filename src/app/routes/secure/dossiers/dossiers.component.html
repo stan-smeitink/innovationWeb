@@ -19,7 +19,7 @@
   </thead>
   <tbody>
   <tr *ngFor="let dossier of dossierArray">
-    <th scope="row">{{dossier['employee']['name'] ?? ''}}</th>
+    <td scope="row">{{dossier['employee']['name'] ?? ''}}</td>
     <td>{{dossier['start_at'] ?? ''}}</td>
     <td>{{dossier['end_at'] ?? ''}}</td>
     <td>{{dossier['dossier_status']['name'] ?? ''}}</td>
