@@ -11,6 +11,13 @@
   font-family: "UbuntuRegular",Tahoma,Arial,Helvetica,Verdana,sans-serif;
 }
 
-.nav-item{
-  margin-left:15%;
+.navigation-primary{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.navigation-primary li{
+  margin-left:20px;
+  margin-right:20px;
 }
