@@ -1,32 +1,35 @@
-<div class="col-md-12">
-  <div class="col-md-6 float-left"><p>Employer list</p></div>
-  <a class="btn btn-primary col-md-2 float-right" [routerLink]="'create'">Create</a>
-  <button class="btn btn-primary col-md-2 float-right" (click)="openModal()">Create (Modal)</button>
+<body>
+<div class="header">
+  <div class="col-md-12"><p>Employer list</p></div>
 </div>
-
-<table class="table">
-  <thead>
-  <tr>
-    <th scope="col">Employer Name</th>
-    <th scope="col">Street</th>
-    <th scope="col">Edit</th>
-    <th scope="col">Delete</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let employer of employersArray">
-    <th scope="row">{{employer['name'] ?? ''}}</th>
-    <td>{{employer['street'] ?? ''}}</td>
-    <td [routerLink]="['update', employer['id']]">
-      <button class="btn btn-info">Edit</button>
-    </td>
-    <td (click)="delete(employer['id'])">
-      <button class="btn btn-danger">Delete</button>
-    </td>
-  </tr>
-  </tbody>
-</table>
-
+<div class="col-md-12 button-row">
+  <a class="btn btn-primary col-md-2" [routerLink]="'create'">Create</a>
+  <!--  <button class="btn btn-primary col-md-2" (click)="openModal()">Create (Modal)</button>-->
+</div>
+<div class="col-md-12">
+  <table class="table employer-table col-md-8">
+    <thead>
+    <tr>
+      <th scope="col">Employer Name</th>
+      <th scope="col">Street</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let employer of employersArray">
+      <th scope="row">{{employer['name'] ?? ''}}</th>
+      <td>{{employer['street'] ?? ''}}</td>
+      <td [routerLink]="['update', employer['id']]">
+        <button class="btn btn-info">Edit</button>
+      </td>
+      <td (click)="delete(employer['id'])">
+        <button class="btn btn-danger">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
 <custom-modal #modal [modalConfig]="modalConfig">
   <!--  body of the modal  -->
 </custom-modal>
@@ -45,3 +48,4 @@
     {{ errorMessage }}
   </div>
 </div>
+</body>
