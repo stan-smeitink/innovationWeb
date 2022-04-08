@@ -3,6 +3,7 @@ import {EmployeesService} from "../../../../services/employees.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {DossiersService} from "../../../../services/dossiers.service";
 import {AbsenceCoursesService} from "../../../../services/absence-courses.service";
+import {count} from "rxjs";
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
@@ -48,10 +49,12 @@ export class EmployeeComponent implements OnInit {
     if(id > 0){
       this.employees.dossiers(id).subscribe({
         next: (data: { result: any }) => {
-          this.chosenDossier = data['data'][0]['id'] ?? null;
-          this.dossiers = data['data'];
-          if (this.chosenDossier > 0){
-            this.getAbsenceCourse(this.chosenDossier);
+          if(data['data'].length > 0){
+            this.chosenDossier = data['data'][0]['id'] ?? null;
+            this.dossiers = data['data'];
+            if (this.chosenDossier > 0){
+              this.getAbsenceCourse(this.chosenDossier);
+            }
           }
         },
         error: (err: { error: { message: string; }; }) => {
