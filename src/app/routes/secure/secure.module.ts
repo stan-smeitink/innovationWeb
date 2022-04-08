@@ -3,7 +3,7 @@ import {Routes, RouterModule} from '@angular/router';
 import {SecureComponent} from './secure/secure.component';
 import {CommonModule} from '@angular/common';
 import {EmployersComponent} from "./employers/employers.component";
-import {FormsModule} from '@angular/forms'; //TODO: replace with SharedModule?
+import {FormsModule} from '@angular/forms';
 import {EmployeesComponent} from "./employees/employees.component";
 import {DossiersComponent} from "./dossiers/dossiers.component";
 import {FormComponent} from './employees/form/form.component';
