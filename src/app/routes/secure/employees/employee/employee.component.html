@@ -11,8 +11,8 @@
         <td id="dossier-section" class="top-tab ignore side-tab-last-dossier-anchor" style="width: 200px; vertical-align: top; min-height: 500px; border-right: 1px solid rgb(189, 189, 189);">
           <div class="dossier-overview-header">Dossier overzicht
 
-            <div *ngFor="let dossier of dossiers" class="dossier">
-              <a style="white-space:pre-wrap; " data-placement="right" data-id="{{dossier['id']}}" class="dossier-overview-items" (click)="getAbsenceCourse(dossier['id'])">
+            <div *ngFor="let dossier of dossiers" class="dossier" (click)="getAbsenceCourse(dossier['id'])" [ngClass]="chosenDossier == dossier['id'] ? 'active' : ''">
+              <a style="white-space:pre-wrap; " data-placement="right" data-id="{{dossier['id']}}" class="dossier-overview-items" >
                 <i class="fa fa-link" aria-hidden="true"></i>
                 <b> {{dossier['start_at']}}</b> <br>
 

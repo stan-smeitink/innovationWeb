@@ -48,7 +48,11 @@ export class EmployeeComponent implements OnInit {
     if(id > 0){
       this.employees.dossiers(id).subscribe({
         next: (data: { result: any }) => {
+          this.chosenDossier = data['data'][0]['id'] ?? null;
           this.dossiers = data['data'];
+          if (this.chosenDossier > 0){
+            this.getAbsenceCourse(this.chosenDossier);
+          }
         },
         error: (err: { error: { message: string; }; }) => {
 
@@ -58,6 +62,7 @@ export class EmployeeComponent implements OnInit {
   }
 
   public getAbsenceCourse(dossierId){
+    this.chosenDossier = dossierId;
     this.dossierService.show(dossierId).subscribe({
       next: (data: { result: any }) => {
         this.dossier = data['data'];
