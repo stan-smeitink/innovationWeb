@@ -57,8 +57,8 @@ export class EmployeeComponent implements OnInit {
     }
   }
 
-  public getAbsenceCourse(){
-    this.dossierService.show(this.chosenDossier).subscribe({
+  public getAbsenceCourse(dossierId){
+    this.dossierService.show(dossierId).subscribe({
       next: (data: { result: any }) => {
         this.dossier = data['data'];
         this.absenceCourses = data['data']['absence_courses'];
@@ -72,7 +72,7 @@ export class EmployeeComponent implements OnInit {
   public deleteAbsence(id){
     this.absenceCourseService.delete(id).subscribe({
       next: (data: { result: any }) => {
-        this.getAbsenceCourse();
+        // this.getAbsenceCourse();
       },
       error: (err: { error: { message: string; }; }) => {
 

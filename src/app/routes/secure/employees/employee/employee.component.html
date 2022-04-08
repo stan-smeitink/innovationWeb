@@ -1,42 +1,66 @@
 <div ng-controller="myCtrl"></div>
 <div class="container">
-  <div class="jumbotron" style="text-align: center">
-  <p>{{employee['name']}}</p>
-  </div>
-</div>
-<div class="container">
-  <select class="form-control" [(ngModel)]="chosenDossier" style="text-align: center" id="selectedDossierId" (ngModelChange)="getAbsenceCourse()">
-   <option *ngFor="let dossier of dossiers" value="{{dossier['id']}}" >{{dossier['start_at']}} - {{dossier['end_at']}}</option>
-  </select>
+  <!--  <select class="form-control" [(ngModel)]="chosenDossier" style="text-align: center" id="selectedDossierId" (ngModelChange)="getAbsenceCourse()">-->
+  <!--    <option *ngFor="let dossier of dossiers" value="{{dossier['id']}}">{{dossier['start_at']}} - {{dossier['end_at']}}</option>-->
+  <!--  </select>-->
 </div>
 <div class="wrapper">
-<!--  <div class="col-md-12">-->
-<!--    <div class="col-md-6 float-left"><p>Dossier list</p></div>-->
-<!--    <a class="btn btn-primary col-md-2 float-right" routerLink="/absence-course/create">Create absence course</a>-->
-<!--  </div>-->
+  <div class="col-md-12">
+    <div class="row">
+      <div style="text-align: center" class="col-md-12">
+        <p>{{employee['name']}}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">
+        <td id="dossier-section" class="top-tab ignore side-tab-last-dossier-anchor" style="width: 200px; vertical-align: top; min-height: 500px; border-right: 1px solid rgb(189, 189, 189);">
+          <div class="dossier-overview-header">Dossier overzicht
 
-  <div id="content">
-    <table class="table">
-      <thead>
-      <tr>
-        <th scope="col">Start at</th>
-        <th scope="col">End at</th>
-        <th scope="col">Absence percentage</th>
-        <th scope="col">Type</th>
-<!--        <th scope="col">Edit</th>-->
-        <th scope="col">Delete</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let absenceCourse of absenceCourses">
-        <th scope="row">{{absenceCourse['start_at'] ?? ''}}</th>
-        <td>{{absenceCourse['end_at'] ?? ''}}</td>
-        <td>{{absenceCourse['absence_percentage'] ?? ''}}%</td>
-        <td>{{absenceCourse['absence_type']['name'] ?? ''}}</td>
-<!--        <td [routerLink]="['update', absenceCourse['id']]"><button class="btn btn-info">Edit</button></td>-->
-        <td (click)="deleteAbsence(absenceCourse['id'])"><button class="btn btn-danger">Delete</button></td>
-      </tr>
-      </tbody>
-    </table>
+            <div *ngFor="let dossier of dossiers" class="dossier">
+              <a style="white-space:pre-wrap; " data-placement="right" data-id="{{dossier['id']}}" class="dossier-overview-items" (click)="getAbsenceCourse(dossier['id'])">
+                <i class="fa fa-link" aria-hidden="true"></i>
+                <b> {{dossier['start_at']}}</b> <br>
+
+                <b *ngIf="dossier['end_at']"> {{dossier['end_at']}}</b>
+                <br>
+                <br>
+                <p style="font-size: 70%; margin-bottom: 0px; margin-top: 3px;" title="Dossiernummer">({{dossier['id']}})
+                  <span class="debugging">(180)</span></p>
+              </a>
+            </div>
+
+          </div>
+        </td>
+      </div>
+
+      <div class="col-md-10">.col-md-4
+        <div id="content">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Start at</th>
+                <th scope="col">End at</th>
+                <th scope="col">Absence percentage</th>
+                <th scope="col">Type</th>
+                <!--        <th scope="col">Edit</th>-->
+                <th scope="col">Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let absenceCourse of absenceCourses">
+                <th scope="row">{{absenceCourse['start_at'] ?? ''}}</th>
+                <td>{{absenceCourse['end_at'] ?? ''}}</td>
+                <td>{{absenceCourse['absence_percentage'] ?? ''}}%</td>
+                <td>{{absenceCourse['absence_type']['name'] ?? ''}}</td>
+                <!--        <td [routerLink]="['update', absenceCourse['id']]"><button class="btn btn-info">Edit</button></td>-->
+                <td (click)="deleteAbsence(absenceCourse['id'])">
+                  <button class="btn btn-danger">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
