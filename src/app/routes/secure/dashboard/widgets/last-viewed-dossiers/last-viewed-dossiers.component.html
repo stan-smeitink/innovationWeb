@@ -1,0 +1,24 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      Openstaande dossiers
+    </h3>
+  </div>
+  <div class="list-group dashboard-list scroll1" style="max-height:30vh; overflow-x:hidden;" id="results-active-dossiers">
+    <div class="loading-wrapper" style="display: none;">
+      <img src="/images/loading-bars.gif" class="loading-image">
+    </div>
+    <div *ngFor="let dossier of dossiers" class="dossier">
+      <a style="white-space:pre-wrap; " data-placement="right" data-id="{{dossier['id']}}" class="dossier-overview-items" >
+        <i class="fa fa-link" aria-hidden="true"></i>
+        <b> {{dossier['start_at']}}</b> <br>
+
+        <b *ngIf="dossier['end_at']"> {{dossier['end_at']}}</b>
+        <br>
+        <br>
+        <p style="font-size: 70%; margin-bottom: 0px; margin-top: 3px;" title="Dossiernummer">({{dossier['id']}})
+          <span class="debugging">(180)</span></p>
+      </a>
+    </div>
+  </div>
+</div>
