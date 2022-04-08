@@ -1,23 +1,43 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">
-      Openstaande dossiers
-    </h3>
-  </div>
-  <div class="list-group dashboard-list scroll1" style="max-height:30vh; overflow-x:hidden;" id="results-active-dossiers">
-    <div class="loading-wrapper" style="display: none;">
-      <img src="/images/loading-bars.gif" class="loading-image">
-    </div>
-    <div *ngFor="let dossier of dossiers" class="dossier">
-      <a style="white-space:pre-wrap; " data-placement="right" data-id="{{dossier['id']}}" class="dossier-overview-items" >
-        <i class="fa fa-link" aria-hidden="true"></i>
-        <b> {{dossier['start_at']}}</b> <br>
+<!--<div class="panel panel-default">-->
+<!--  <div class="panel-heading">-->
+<!--    <h3 class="panel-title">-->
+<!--      Openstaande dossiers-->
+<!--    </h3>-->
+<!--  </div>-->
+<!--  <div class="list-group dashboard-list scroll1" style="max-height:30vh; overflow-x:hidden;" id="results-active-dossiers">-->
+<!--    <div class="loading-wrapper" style="display: none;">-->
+<!--      <img src="/images/loading-bars.gif" class="loading-image">-->
+<!--    </div>-->
+<!--    <div *ngFor="let dossier of dossiers" class="dossier">-->
+<!--      <a style="white-space:pre-wrap; " data-placement="right" data-id="{{dossier['id']}}" class="dossier-overview-items">-->
+<!--        <i class="fa fa-link" aria-hidden="true"></i>-->
+<!--        <b> {{dossier['start_at']}}</b> <br>-->
 
-        <b *ngIf="dossier['end_at']"> {{dossier['end_at']}}</b>
-        <br>
-        <br>
-        <p style="font-size: 70%; margin-bottom: 0px; margin-top: 3px;" title="Dossiernummer">({{dossier['id']}})
-          <span class="debugging">(180)</span></p>
+<!--        <b *ngIf="dossier['end_at']"> {{dossier['end_at']}}</b>-->
+<!--        <br>-->
+<!--        <br>-->
+<!--        <p style="font-size: 70%; margin-bottom: 0px; margin-top: 3px;" title="Dossiernummer">({{dossier['id']}})-->
+<!--          <span class="debugging">(180)</span></p>-->
+<!--      </a>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+
+<div class="col-md-4">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        Openstaande dossiers
+      </h3>
+    </div>
+    <div class="list-group dashboard-list scroll1" style="max-height:300px; min-height: 500px; overflow-x:hidden;"  class="dossier">
+      <div class="loading-wrapper" style="display: none;">
+        <img src="/images/loading-bars.gif" class="loading-image">
+      </div>
+      <a *ngFor="let dossier of dossiers" [routerLink]="['employee', dossier['employee_id']]" class="list-group-item" style="height: 60px; margin-left: 0px;">
+        <h5 class="list-group-item-heading">{{dossier['name']}}</h5>
+        <p class="list-group-item-text text-muted text-italic"><i class="fa fa-calendar"></i> {{dossier['start_at']}}</p>
       </a>
     </div>
   </div>
