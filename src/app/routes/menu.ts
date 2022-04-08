@@ -4,6 +4,12 @@ const Home = {
   icon: 'icon-home'
 };
 
+const Dashboard = {
+  text: 'Dashboard',
+  link: '/dashboard',
+  icon: 'icon-home'
+};
+
 const Login = {
   text: 'Login',
   link: '/login',
@@ -24,6 +30,7 @@ const headingMain = {
 export const menu: any = {
   headingMain,
   Home,
+  Dashboard,
   Login,
   register
 }

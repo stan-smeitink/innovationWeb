@@ -42,4 +42,8 @@ export class DossiersService {
   delete(id: number): Observable<any> {
     return this.http.delete(`${AUTH_API}/${id}`);
   }
+
+  getLastViewedDossiers(): Observable<any> {
+    return this.http.get(`${AUTH_API}/last-viewed-dossiers`);
+  }
 }
