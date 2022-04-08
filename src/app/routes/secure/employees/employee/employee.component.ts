@@ -45,23 +45,21 @@ export class EmployeeComponent implements OnInit {
     }
   }
 
-  private getDossiers(id){
-    if(id > 0){
-      this.employees.dossiers(id).subscribe({
-        next: (data: { result: any }) => {
-          if(data['data'].length > 0){
-            this.chosenDossier = data['data'][0]['id'] ?? null;
-            this.dossiers = data['data'];
-            if (this.chosenDossier > 0){
-              this.getAbsenceCourse(this.chosenDossier);
-            }
+  private getDossiers(id, selectedDossier = null){
+    this.employees.dossiers(id).subscribe({
+      next: (data: { result: any }) => {
+        if(data['data'].length > 0){
+          this.chosenDossier = selectedDossier ?? data['data'][0]['id'];
+          this.dossiers = data['data'];
+          if (this.chosenDossier > 0){
+            this.getAbsenceCourse(this.chosenDossier);
           }
-        },
-        error: (err: { error: { message: string; }; }) => {
-
         }
-      });
-    }
+      },
+      error: (err: { error: { message: string; }; }) => {
+
+      }
+    });
   }
 
   public getAbsenceCourse(dossierId){
@@ -87,5 +85,4 @@ export class EmployeeComponent implements OnInit {
       }
     });
   }
-
 }
