@@ -69,10 +69,10 @@ export class EmployeeComponent implements OnInit {
     });
   }
 
-  public deleteAbsence(id){
+  public deleteAbsence(id, dossierId){
     this.absenceCourseService.delete(id).subscribe({
       next: (data: { result: any }) => {
-        // this.getAbsenceCourse();
+        this.getAbsenceCourse(dossierId);
       },
       error: (err: { error: { message: string; }; }) => {
 

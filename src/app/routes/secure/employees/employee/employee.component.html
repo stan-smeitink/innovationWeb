@@ -53,7 +53,7 @@
                 <td>{{absenceCourse['absence_percentage'] ?? ''}}%</td>
                 <td>{{absenceCourse['absence_type']['name'] ?? ''}}</td>
                 <!--        <td [routerLink]="['update', absenceCourse['id']]"><button class="btn btn-info">Edit</button></td>-->
-                <td (click)="deleteAbsence(absenceCourse['id'])">
+                <td (click)="deleteAbsence(absenceCourse['id'],absenceCourse['dossier_id'] )">
                   <button class="btn btn-danger">Delete</button>
                 </td>
               </tr>
